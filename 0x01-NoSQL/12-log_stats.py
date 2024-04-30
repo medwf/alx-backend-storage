@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """This module for task 12."""
 from pymongo import MongoClient
-from pymongo.collection import Collection
 
 
 def print_logs(NgxClt):
