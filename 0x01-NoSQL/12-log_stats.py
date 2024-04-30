@@ -9,11 +9,11 @@ def print_logs(NgxClt):
     Args:
         NgxClt: Collection of nginx.
     """
-    print(NgxClt.count_documents({}), 'logs')
+    print('{} logs'.format(NgxClt.count_documents({})))
     print('Methods:')
     for method in ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']:
         CountSearch = len(list(NgxClt.find({'method': method})))
-        print('\tmethods {}: {}'.format(method, CountSearch))
+        print('\tmethod {}: {}'.format(method, CountSearch))
     CountSearch = len(list(NgxClt.find({'method': 'GET', 'path': '/status'})))
     print('{} status check'.format(CountSearch))
 
