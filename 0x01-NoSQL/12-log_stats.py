@@ -3,6 +3,7 @@
 from pymongo import MongoClient
 from pymongo.collection import Collection
 
+
 def print_logs(NgxClt):
     """
     function that print logs data.
@@ -17,6 +18,7 @@ def print_logs(NgxClt):
     CountSearch = len(list(NgxClt.find({'method': 'GET', 'path': '/status'})))
     print('{} status check'.format(CountSearch))
 
+
 if __name__ == '__main__':
-    nginx_collection: Collection = MongoClient('mongodb://127.0.0.1:27017').logs.nginx
-    print_logs(nginx_collection)
+    client = MongoClient('mongodb://127.0.0.1:27017')
+    print_logs(client.logs.nginx)
