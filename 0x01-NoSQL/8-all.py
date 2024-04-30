@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-"""
-this module for task 8
-"""
+"""this module for task 8."""
 from pymongo.collection import Collection
 from typing import List
 
