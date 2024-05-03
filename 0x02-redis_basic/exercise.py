@@ -4,6 +4,7 @@ This module for redis exercise
 """
 import redis
 import uuid
+from typing import Union
 # print(dir(redis))
 
 
@@ -17,7 +18,7 @@ class Cache:
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    def store(self, data: str | bytes | int | float) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         """
         store data using random id as string.
         """
