@@ -24,6 +24,7 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return invoker
 
+
 def call_history(method: Callable) -> Callable:
     """
     store the history of inputs and outputs for a particular function.
@@ -42,6 +43,7 @@ def call_history(method: Callable) -> Callable:
             self._redis.rpush(out_key, output)
         return output
     return invoker
+
 
 def replay(fn: Callable) -> None:
     '''Displays the call history of a Cache class' method.
