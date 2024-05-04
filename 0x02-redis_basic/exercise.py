@@ -40,7 +40,7 @@ class Cache:
         """
         return self._redis.get(key, lambda v: str(v))
 
-    def get_int(self, key):
+    def get_int(self, key: str) -> int:
         """
         a methods that get an integer from redis storage
         """
