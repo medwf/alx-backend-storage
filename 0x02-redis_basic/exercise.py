@@ -4,7 +4,7 @@ This module for redis exercise
 """
 import redis
 import uuid
-from typing import Union
+from typing import Union, Callable
 # print(dir(redis))
 
 
@@ -25,3 +25,23 @@ class Cache:
         key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
+
+    def get(self, key: str, fn: Union[Callable, None]
+            ) -> Union[str, bytes, int, float]:
+        """
+        a methods that get a value from redis storage
+        """
+        value = self._redis.get(key)
+        return fn(value) if fn is not None else value
+
+    def get_str(self, key: str) -> str:
+        """
+        a methods that get a string value from redis storage
+        """
+        return self._redis.get(key, lambda v: str(v))
+
+    def get_int(self, key):
+        """
+        a methods that get an integer from redis storage
+        """
+        return self._redis.get(key, lambda v: int(v))
